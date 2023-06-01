@@ -54,8 +54,7 @@ fun AddCursoScreen(
         )
         Button(
             onClick = {
-                //updateMascota(mascota)
-                //navigateBack()
+                viewModel.addCurso()
             }
         ){
             Text("Crear  Curso")

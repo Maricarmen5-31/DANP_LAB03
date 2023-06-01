@@ -1,10 +1,10 @@
 package com.example.danp_lab03.screens
 
 import android.annotation.SuppressLint
-import android.util.Log
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Button
@@ -14,10 +14,7 @@ import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
-import com.example.danp_lab03.model.Repository
-import kotlinx.coroutines.launch
 
 @SuppressLint("CoroutineCreationDuringComposition")
 @Composable
@@ -28,12 +25,12 @@ fun MenuScreen(
     val scope = rememberCoroutineScope()
 
     Column(
-        modifier = Modifier.padding(20.dp),
+        modifier = Modifier.padding(20.dp).fillMaxSize(),
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         Button(
-            onClick = {navController.navigate("menu")}
+            onClick = { navController.navigate("Add Estudiante") }
         ) {
             Text(text = "Crear Estudiante")
         }
@@ -41,7 +38,7 @@ fun MenuScreen(
         Spacer(modifier = Modifier.height(10.dp))
 
         Button(
-            onClick = {}
+            onClick = {navController.navigate("Add Curso") }
         ) {
             Text(text = "Crear Curso")
         }
@@ -49,7 +46,7 @@ fun MenuScreen(
         Spacer(modifier = Modifier.height(10.dp))
 
         Button(
-            onClick = {  }
+            onClick = { navController.navigate("Lista Cursos") }
         ) {
             Text(text = "Mostrar lista cursos con estudiantes")
         }

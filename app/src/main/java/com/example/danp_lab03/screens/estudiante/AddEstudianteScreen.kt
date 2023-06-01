@@ -63,8 +63,7 @@ fun AddEstudianteScreen(
         )
         Button(
             onClick = {
-                //updateMascota(mascota)
-                //navigateBack()
+                viewModel.addEstudiante()
             }
         ){
             Text("Crear Estudiante")

@@ -7,13 +7,17 @@ import androidx.navigation.compose.composable
 import com.example.danp_lab03.screens.MenuScreen
 import com.example.danp_lab03.screens.curso.AddCursoScreen
 import com.example.danp_lab03.screens.estudiante.AddEstudianteScreen
+import com.example.danp_lab03.screens.lista.ListaScreen
 
 @Composable
 fun NavGraph(
     navController: NavHostController
 ){
     NavHost(navController = navController, startDestination =  "MenuScreen" ){
-        composable("MenuScreen") { AddCursoScreen(navController) }
-        composable("MenuScreen") { AddEstudianteScreen(navController) }
+        composable("MenuScreen") { MenuScreen(navController) }
+        composable("Add Curso") { AddCursoScreen(navController) }
+        composable("Add Estudiante") { AddEstudianteScreen(navController) }
+        composable("Lista Cursos") { ListaScreen(navController) }
+
     }
 }

@@ -12,6 +12,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.navigation.compose.rememberNavController
 import com.example.danp_lab03.navegation.NavGraph
+import com.example.danp_lab03.screens.MenuScreen
 import com.example.danp_lab03.ui.theme.DANP_LAB03Theme
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -37,18 +38,10 @@ class MainActivity : ComponentActivity() {
     }
 }
 
-@Composable
-fun Greeting(name: String, modifier: Modifier = Modifier) {
-    Text(
-        text = "Hello $name!",
-        modifier = modifier
-    )
-}
-
 @Preview(showBackground = true)
 @Composable
 fun GreetingPreview() {
     DANP_LAB03Theme {
-        Greeting("Android")
+        //
     }
 }
