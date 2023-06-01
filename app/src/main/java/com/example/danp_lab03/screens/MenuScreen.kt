@@ -5,6 +5,7 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Button
@@ -25,11 +26,12 @@ fun MenuScreen(
     val scope = rememberCoroutineScope()
 
     Column(
-        modifier = Modifier.padding(20.dp).fillMaxSize(),
+        modifier = Modifier.padding(50.dp).fillMaxSize(),
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         Button(
+            modifier = Modifier.fillMaxWidth(),
             onClick = { navController.navigate("Add Estudiante") }
         ) {
             Text(text = "Crear Estudiante")
@@ -38,6 +40,7 @@ fun MenuScreen(
         Spacer(modifier = Modifier.height(10.dp))
 
         Button(
+            modifier = Modifier.fillMaxWidth(),
             onClick = {navController.navigate("Add Curso") }
         ) {
             Text(text = "Crear Curso")
@@ -46,6 +49,16 @@ fun MenuScreen(
         Spacer(modifier = Modifier.height(10.dp))
 
         Button(
+            modifier = Modifier.fillMaxWidth(),
+            onClick = {navController.navigate("Matriculas") }
+        ) {
+            Text(text = "Matricular Estudiante a un Curso")
+        }
+
+        Spacer(modifier = Modifier.height(10.dp))
+
+        Button(
+            modifier = Modifier.fillMaxWidth(),
             onClick = { navController.navigate("Lista Cursos") }
         ) {
             Text(text = "Mostrar lista cursos con estudiantes")

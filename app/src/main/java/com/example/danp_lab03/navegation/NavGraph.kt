@@ -6,6 +6,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import com.example.danp_lab03.screens.MenuScreen
 import com.example.danp_lab03.screens.curso.AddCursoScreen
+import com.example.danp_lab03.screens.cursoEstudiante.CursoEstudianteScreen
 import com.example.danp_lab03.screens.estudiante.AddEstudianteScreen
 import com.example.danp_lab03.screens.lista.ListaScreen
 
@@ -17,6 +18,7 @@ fun NavGraph(
         composable("MenuScreen") { MenuScreen(navController) }
         composable("Add Curso") { AddCursoScreen(navController) }
         composable("Add Estudiante") { AddEstudianteScreen(navController) }
+        composable("Matriculas") { CursoEstudianteScreen(navController) }
         composable("Lista Cursos") { ListaScreen(navController) }
 
     }

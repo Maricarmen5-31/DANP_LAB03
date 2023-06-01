@@ -2,6 +2,7 @@ package com.example.danp_lab03.screens.curso
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -13,6 +14,7 @@ import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
+import androidx.compose.ui.Alignment.Companion.CenterHorizontally
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
@@ -36,7 +38,9 @@ fun AddCursoScreen(
 
         Text(
             text = "Agregar Curso",
-            modifier = Modifier.fillMaxWidth().padding(15.dp),
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(15.dp),
             textAlign = TextAlign.Center,
             fontSize = 30.sp,
             fontWeight = FontWeight.Bold
@@ -50,14 +54,31 @@ fun AddCursoScreen(
             label = { Text("Nombre del curso:")}
         )
         Spacer(
-            modifier = Modifier.height(15.dp)
+            modifier = Modifier.height(20.dp)
         )
-        Button(
-            onClick = {
-                viewModel.addCurso()
+        Row(
+            modifier = Modifier.align(CenterHorizontally)
+        ) {
+            Button(
+                modifier = Modifier.padding(10.dp),
+                onClick = {
+                    navController.navigate("MenuScreen")
+                }
+            ){
+                Text("Cancelar")
             }
-        ){
-            Text("Crear  Curso")
+            Button(
+                modifier = Modifier.padding(10.dp),
+                onClick = {
+                    viewModel.addCurso()
+                    navController.navigate("MenuScreen")
+                }
+            ){
+                Text("Crear  Curso")
+            }
         }
+        Spacer(
+            modifier = Modifier.height(50.dp)
+        )
     }
 }

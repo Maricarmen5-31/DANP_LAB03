@@ -1,4 +1,4 @@
-package com.example.danp_lab03.screens.estudiante
+package com.example.danp_lab03.screens.cursoEstudiante
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -21,13 +21,12 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
-import com.example.danp_lab03.screens.curso.AddCursoViewModel
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun AddEstudianteScreen(
+fun CursoEstudianteScreen(
     navController: NavController,
-    viewModel: AddEstudianteViewModel = hiltViewModel()
+    viewModel: CursoEstudianteViewModel = hiltViewModel()
 ){
     Column(
         modifier = Modifier
@@ -37,8 +36,10 @@ fun AddEstudianteScreen(
     ){
 
         Text(
-            text = "Agregar Estudiante",
-            modifier = Modifier.fillMaxWidth().padding(15.dp),
+            text = "Matricula",
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(15.dp),
             textAlign = TextAlign.Center,
             fontSize = 30.sp,
             fontWeight = FontWeight.Bold
@@ -47,20 +48,20 @@ fun AddEstudianteScreen(
             modifier = Modifier.height(15.dp)
         )
         OutlinedTextField(
-            value = viewModel.nombre,
-            onValueChange = { viewModel.nombre = it },
-            label = { Text("Nombre:") }
+            value = viewModel.idCurso,
+            onValueChange = { viewModel.idCurso = it },
+            label = { Text("ID del curso:") }
         )
         Spacer(
-            modifier = Modifier.height(15.dp)
+            modifier = Modifier.height(20.dp)
         )
         OutlinedTextField(
-            value = viewModel.apellido,
-            onValueChange = { viewModel.apellido = it },
-            label = { Text("Apellido:") }
+            value = viewModel.idEstudiante,
+            onValueChange = { viewModel.idEstudiante = it },
+            label = { Text("ID del estudiante:") }
         )
         Spacer(
-            modifier = Modifier.height(15.dp)
+            modifier = Modifier.height(20.dp)
         )
         Row(
             modifier = Modifier.align(Alignment.CenterHorizontally)
@@ -76,15 +77,14 @@ fun AddEstudianteScreen(
             Button(
                 modifier = Modifier.padding(10.dp),
                 onClick = {
-                    viewModel.addEstudiante()
-                    navController.navigate("MenuScreen")
+                    viewModel.addMatricula()
                 }
             ){
-                Text("Crear Estudiante")
+                Text("Matricular")
             }
         }
         Spacer(
-            modifier = Modifier.height(70.dp)
+            modifier = Modifier.height(50.dp)
         )
     }
 }
