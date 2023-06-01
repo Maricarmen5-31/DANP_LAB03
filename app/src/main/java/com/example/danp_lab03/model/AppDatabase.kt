@@ -16,6 +16,7 @@ import com.example.danp_lab03.entities.EstudianteEntity
 abstract class AppDatabase : RoomDatabase(){
     abstract fun estudianteDao(): EstudianteDao
     abstract fun cursoDao(): CursoDao
+    abstract fun cursoEstudianteDao(): CursoEstudianteDao
 
     companion object {
         private var INSTANCE: AppDatabase? = null
@@ -28,7 +29,7 @@ abstract class AppDatabase : RoomDatabase(){
                     instance = Room.databaseBuilder(
                         context.applicationContext,
                         AppDatabase::class.java,
-                        "database-name"
+                        "app.db"
                     ).fallbackToDestructiveMigration()
                         .build()
                     INSTANCE = instance

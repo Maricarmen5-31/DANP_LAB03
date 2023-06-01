@@ -78,6 +78,7 @@ fun CursoEstudianteScreen(
                 modifier = Modifier.padding(10.dp),
                 onClick = {
                     viewModel.addMatricula()
+                    navController.navigate("MenuScreen")
                 }
             ){
                 Text("Matricular")

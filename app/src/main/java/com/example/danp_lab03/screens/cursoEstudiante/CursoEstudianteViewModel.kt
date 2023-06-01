@@ -5,6 +5,7 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.example.danp_lab03.entities.CursoEstudianteCrossRef
 import com.example.danp_lab03.model.Repository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
@@ -22,7 +23,7 @@ class CursoEstudianteViewModel
 
     fun addMatricula() {
         viewModelScope.launch(Dispatchers.IO){
-            //repo.
+            repo.insertCursoEstudiante(CursoEstudianteCrossRef(idCurso, idEstudiante))
         }
     }
 }

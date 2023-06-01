@@ -1,6 +1,7 @@
 package com.example.danp_lab03.model
 
 import com.example.danp_lab03.entities.CursoEntity
+import com.example.danp_lab03.entities.CursoEstudianteCrossRef
 import com.example.danp_lab03.entities.CursoWithEstudiantes
 import com.example.danp_lab03.entities.EstudianteEntity
 import com.example.danp_lab03.entities.EstudianteWithCursos
@@ -8,6 +9,9 @@ import com.example.danp_lab03.entities.EstudianteWithCursos
 class Repository(
     private val appDatabase: AppDatabase
 ) {
+    suspend fun insertCursoEstudiante(cursoEstudianteCrossRef: CursoEstudianteCrossRef) {
+        return appDatabase.cursoEstudianteDao().insert(cursoEstudianteCrossRef)
+    }
     suspend fun getAllCursos(): List<CursoEntity> {
         return appDatabase.cursoDao().getCursos()
     }
@@ -32,7 +36,7 @@ class Repository(
         return appDatabase.estudianteDao().insert(estudiantes)
     }
 
-    suspend fun insertCurso(curso: CursoEntity){
+    suspend fun insertCurso(curso: CursoEntity) {
         return appDatabase.cursoDao().insert(curso)
     }
 

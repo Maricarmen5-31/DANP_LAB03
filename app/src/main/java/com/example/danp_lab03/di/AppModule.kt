@@ -34,6 +34,11 @@ class AppModule {
     ) = appDatabase.estudianteDao()
 
     @Provides
+    fun provideCursoEstudianteDao(
+        appDatabase: AppDatabase
+    ) = appDatabase.cursoEstudianteDao()
+
+    @Provides
     fun provideRepository(
         appDatabase: AppDatabase
     ) = Repository(
